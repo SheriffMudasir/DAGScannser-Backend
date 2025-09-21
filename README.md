@@ -4,7 +4,7 @@
 [![Django](https://img.shields.io/badge/Django-4.x-green?style=for-the-badge&logo=django)](https://www.djangoproject.com/)
 [![Django REST Framework](https://img.shields.io/badge/DRF-3.x-red?style=for-the-badge&logo=django)](https://www.django-rest-framework.org/)
 
-This repository contains the backend service for DAGScanner. It functions as a secure, stateless, **off-chain analysis oracle**. Its sole responsibility is to perform machine learning-based trust score analysis on smart contract addresses and return the results to a client.
+This repository contains the backend service for DAGScanner. It functions as a secure, stateless, **off-chain analysis oracle**. Its sole responsibility is to perform machine learning-based prediction trust score analysis on smart contract addresses and return the results to a client.
 
 This backend is intentionally decoupled from the blockchain. It does not hold private keys, manage nonces, or send transactions, which significantly enhances security and simplifies its architecture.
 
@@ -17,7 +17,7 @@ The DAGScanner ecosystem follows a modern, decentralized Web3 pattern. The backe
 **Data Flow:**
 
 1.  **Frontend → Backend:** The frontend sends a contract address to this API.
-2.  **Backend (Oracle):** This service runs a pre-trained ML model to calculate a `score` and `status`. It then returns this data to the frontend.
+2.  **Backend (Oracle):** This service runs a pre-trained ML Prediction model to calculate a `score` and `status`. It then returns this data to the frontend.
 3.  **Frontend → Smart Contract:** The frontend uses the data from this API to construct a transaction, which the user then signs and sends to the BlockDAG smart contract, paying the required fee.
 
 ```mermaid
@@ -41,11 +41,11 @@ sequenceDiagram
 
 ## ✨ Features
 
-- **Stateless Oracle:** Receives an address, returns an analysis. No session or user data is stored.
+- **Stateless Oracle:** Receives an address, returns a Prediction analysis. No session or user data is stored.
 - **Secure by Design:** No private keys or "hot wallets" on the server. All transaction signing is client-side.
 - **ML-Powered:** Utilizes a pre-trained `scikit-learn` model to predict a contract's trust score.
 - **Robust & Scalable:** Built with Django and Django REST Framework for production-ready performance.
-- **Ready for Deployment:** Configured for production environments like Render or Fly.io.
+- **Ready for Deployment:** Configured for production environments like Render
 
 ---
 
