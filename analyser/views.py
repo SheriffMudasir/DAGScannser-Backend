@@ -45,6 +45,8 @@ def mock_features(address: str) -> dict:
     """
     Mocks feature extraction for a given contract address.
     Generates deterministic features based on the address for demonstration.
+    
+    We replace this with a robustly trained ai model in a real-world scenario.
     """
     
     try:
@@ -63,6 +65,9 @@ def run_prediction(features: dict) -> tuple[int, str]:
     """
     Runs the ML model to predict a trust score and status.
     Falls back to a simple mock logic if the model is not loaded.
+    
+    
+    same thing here. In real world, this would use a trained and fine-tuned production ready ai model.
     """
     if ml_model:
         X = np.array([[
@@ -111,6 +116,7 @@ def analyze(request):
     print(f"📊 Prediction complete - Score: {score}, Status: {status_msg}")
 
     # 3. Return the analysis result to the client.
+    # In a real-world scenario, we there will be lots of other data based on the ai mode and will also log this analysis to a database.
     return Response({
         "address": address,
         "score": score,

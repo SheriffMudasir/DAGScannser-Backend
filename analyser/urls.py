@@ -2,8 +2,6 @@
 analyzer/urls.py
 
 URL configuration for the 'analyzer' application.
-
-Defines the routing for the API endpoint that handles contract analysis requests.
 """
 
 from django.urls import path
